@@ -33,16 +33,16 @@ Turn an old Raspberry Pi and some amplified speakers into an internet radio you 
 	`mpc add http://icecast.radiofrance.fr/fip-midfi.mp3`
 - Test with `mpc play 1` - it should plays FIP out of the headphone socket.
 - Add some more radio stations. My list looks like this:
---	BBC Radio 2 `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p`
---	BBC Radio 3 `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p`
---	BBC Radio 4 FM `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p`
---	BBC Radio 5Live `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio5live_mf_p`
---	BBC 6music `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_6music_mf_p`
---	BBC World Service News `http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-einws`
---	RTÉ Radio 1 `mpc add http://icecast2.rte.ie/radio1`
---	RTÉ 2xm `mpc add http://icecast2.rte.ie/2xm`
--- Scala Radio `mpc add https://stream-mz.planetradio.co.uk/scalahigh.aac`
--- BBC Radio 4 Extra `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4extra_mf_p`
--- BBC 6music high quality `mpc add	http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_6music.m3u8`
--- BBC Radio 3 high quality `mpc add	http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_three.m3u8`
--- fip high quality `mpc add http://icecast.radiofrance.fr/fip-hifi.aac`
+	- BBC Radio 2 `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p`
+	- BBC Radio 3 `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p`
+	- BBC Radio 4 FM `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p`
+	- BBC Radio 5Live `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio5live_mf_p`
+	- BBC 6music `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_6music_mf_p`
+	- BBC World Service News `http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-einws`
+	- RTÉ Radio 1 `mpc add http://icecast2.rte.ie/radio1`
+	- RTÉ 2xm `mpc add http://icecast2.rte.ie/2xm`
+	- Scala Radio `mpc add https://stream-mz.planetradio.co.uk/scalahigh.aac`
+	- BBC Radio 4 Extra `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4extra_mf_p`
+	- BBC 6music high quality `mpc add http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_6music.m3u8`
+	- BBC Radio 3 high quality `mpc add	http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_three.m3u8`
+	- fip high quality `mpc add http://icecast.radiofrance.fr/fip-hifi.aac`
