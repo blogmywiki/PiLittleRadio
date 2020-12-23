@@ -72,7 +72,48 @@ audio_output {
 - Test it out by playing some radio `mpc play 1` then try `mpc volume +10` or `mpc volume -10` to increase and decrease the volume.
 
 ### Install a webserver
-- to come
+- How do you install a webserver? You just install a webserver.
+- Ok, there's a bit more to it. But really, not much more. There's a good guide to installing nginx, a lightweight webserver, here: https://www.raspberrypi.org/documentation/remote-access/web-server/nginx.md 
+- In short, you need to type `sudo apt update` then install it with `sudo apt install nginx`
+- Start the server with `sudo /etc/init.d/nginx start`
+- On your laptop browse to http://192.168.1.199 (replace that number with your Pi's IP address) and you should see the ‘welcome to nginx’ message served.
+- The default web page is in /var/www/html on your Pi, and that's where we need to copy the index.php and shutdown.php files that form part of this project.
+
+### Enable PHP
+- The radio control webpage uses the PHP scripting language, so we need to enable it
+- `sudo nano /etc/nginx/sites-enabled/default` to edit the file. find the line `index index.html index.htm;` roughly around line 25 (Press CTRL + C in nano to see the current line number). Add `index.php` after index to look like this:
+```index index.php index.html index.htm;```
+Scroll down until you find a section with the following content:
+```
+# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+#
+# location ~ \.php$ {
+```
+
+Edit by removing the # characters on the following lines:
+
+```
+location ~ \.php$ {
+    include snippets/fastcgi-php.conf;
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+}
+```
+
+It should look like this:
+```
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+
+        # With php-fpm (or other unix sockets):
+        fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+        # With php-cgi (or other tcp sockets):
+    #    fastcgi_pass 127.0.0.1:9000;
+        }
+```
+
+Reload the configuration file with `sudo /etc/init.d/nginx reload`
 
 ### Add the web pages
 - to come
