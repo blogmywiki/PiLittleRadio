@@ -67,7 +67,9 @@ audio_output {
 }
 ```
 
-- My audio jack audio was too quiet, so I fixed this using `alsamixer`. Press F6, select the headphones and turn the volume up. I went up to about 80%. Press ESC to escape. Test it out by playing some radio `mpc play 1` then try `mpc volume +10` or `mpc volume -10` to increase and decrease the volume.
+- My audio jack audio was too quiet, so I fixed this using `alsamixer`.
+- Press F6 to choose the audio device, select the headphones and turn the volume up. I went up to about 80%. Press ESC to escape.
+- Test it out by playing some radio `mpc play 1` then try `mpc volume +10` or `mpc volume -10` to increase and decrease the volume.
 
 ### Install a webserver
 - to come
