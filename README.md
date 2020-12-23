@@ -8,7 +8,7 @@ Turn an old Raspberry Pi and some amplified speakers into an internet radio you 
 - Some kind of Raspberry Pi with an audio jack and an SD card
 - A way of connecting it to the internet, either ethernet or wifi
 - Amplified speakers or headphones
-- Some familiarity with command line Linux and using a text editor like nano.
+- Some basic familiarity with command line Linux, editing HTML files and using a text editor like nano.
 - That's it. This is not an audiophile project, it does not use an external DAC. In my view the 3.5mm jack is good enough for a radio in the kitchen, garage or workshop.
 
 ## How to install it
@@ -99,7 +99,7 @@ location ~ \.php$ {
 }
 ```
 
-It should look like this:
+It should end up looking like this:
 ```
         # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
         #
@@ -113,10 +113,23 @@ It should look like this:
         }
 ```
 
-Reload the configuration file with `sudo /etc/init.d/nginx reload`
+- Reload the configuration file with `sudo /etc/init.d/nginx reload`
+
+- Now test PHP is working. Rename index.nginx-debian.html to index.php:
+```
+cd /var/www/html/
+sudo mv index.nginx-debian.html index.php
+```
+
+- Open index.php with a text editor: `sudo nano index.php`
+
+- Add some dynamic PHP content by replacing the current content with
+```
+<?php echo phpinfo(); ?>
+```
+Save and refresh your web browser. You should see a page with the PHP version, logo and current configuration settings.
 
 ### Add the web pages
-- to come
- 
-### Test
-- to come
+- Rename the index page so it doesn't conflict with our radio controller page: `sudo mv index.php phpinfo.php` 
+- Place the index.php and shutdown.php files from this project in your web server folder /var/www/html/ 
+- Refresh your web-browser and you should see a page like this:
