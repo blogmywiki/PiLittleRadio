@@ -2,7 +2,7 @@
 A Raspberry Pi internet radio controlled from a web page
 
 ## What it does
-Turn an old Raspberry Pi and some amplified speakers into an internet radio you can control from your phone, tablet, Kindle or and computer on your WiFi network. It uses a simple webserver on the Pi to dish up a web page you can use to change channel, adjust the volume and see some 'now playing' track info via Twitter.
+Turn an old Raspberry Pi and some amplified speakers into an internet radio you can control from your phone, tablet, Kindle or and computer on your WiFi network. It uses a simple webserver on the Pi to dish up a web page you can use to change channel, adjust the volume and see some 'now playing' track info via Twitter. The web page is designed to look good on a small iPhone but you could tweak it to look better on your device.
 
 ## What you'll need
 - Some kind of Raspberry Pi with an audio jack and an SD card
@@ -39,7 +39,7 @@ Turn an old Raspberry Pi and some amplified speakers into an internet radio you 
 - Add a radio station, for example fip, the greatest radio station in the world:
 	`mpc add http://icecast.radiofrance.fr/fip-midfi.mp3`
 - Test with `mpc play 1` - it should plays FIP out of the headphone socket.
-- Add some more radio stations. You need the raw streaming URL, they can be found for most radio stations. My list looks like this:
+- Add some more radio stations. You need the raw streaming URLs which can be found for most radio stations if you search the internet. My list looks like this:
 	- BBC Radio 2 `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p`
 	- BBC Radio 3 `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p`
 	- BBC Radio 4 FM `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p`
@@ -132,5 +132,24 @@ Save and refresh your web browser. You should see a page with the PHP version, l
 ### Add the web pages
 - Rename the index page so it doesn't conflict with our radio controller page: `sudo mv index.php phpinfo.php` 
 - Place the index.php and shutdown.php files from this project in your web server folder /var/www/html/ 
+- If you've added a different set of radio stations, you'll need to edit the index.php file so the buttons have the right station names and plays the right station numbers. For example:
+```
+="?station=4" class="stationlinks">BBC&nbsp;R4</a> 
+```
+has a button label of BBC R4 (the &nbsp; is a non-breaking space that ensures the button stays on one line), and it plays the 4th station added to MPC.
+- I've added Twitter feeds of 'now playing' info for fip, BBC Radio 2, Radio 3, and 6Music. 
 - Refresh your web-browser and you should see a page like this:
 ![Screenshot](screenshot.png)
+
+### Background
+
+I originally made this project in Cornwall in 2014: http://www.suppertime.co.uk/blogmywiki/2014/10/raspberry-pi-internet-radio-with-web-interface/
+
+That version used a horrible kludge to get BBC Radio tracklistings via last.fm, but I think that doesn't work any more so I've stripped all that code (but not the CSS) out. It may be possible to do something clever with sydicated fip music info as per http://www.suppertime.co.uk/blogmywiki/2018/04/fip-now-plays/
+
+### To do
+- volume slider
+- play local audio MP3 files 
+- display station list on the fly and manage from web page
+- make buttons stay lit when station selected
+- add Bluetooth speaker option?
