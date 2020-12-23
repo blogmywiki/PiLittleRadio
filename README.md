@@ -139,6 +139,7 @@ Save and refresh your web browser. You should see a page with the PHP version, l
 has a button label of BBC R4 (the &nbsp; is a non-breaking space that ensures the button stays on one line), and it plays the 4th station added to MPC.
 - I've added Twitter feeds of 'now playing' info for fip, BBC Radio 2, Radio 3, and 6Music. 
 - Refresh your web-browser and you should see a page like this:
+
 ![Screenshot](screenshot.png)
 
 ### Background
