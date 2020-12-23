@@ -5,7 +5,7 @@ A Raspberry Pi internet radio controlled from a web page
 Turn an old Raspberry Pi and some amplified speakers into an internet radio you can control from your phone, tablet, Kindle or and computer on your WiFi network. It uses a simple webserver on the Pi to dish up a web page you can use to change channel, adjust the volume and see some 'now playing' track info via Twitter. The web page is designed to look good on a small iPhone but you could tweak it to look better on your device.
 
 ## What you'll need
-- Some kind of Raspberry Pi with an audio jack and an SD card
+- Some kind of Raspberry Pi with an audio jack and an SD card - I think anything except a PiZero should work
 - A way of connecting it to the internet, either ethernet or wifi
 - Amplified speakers or headphones
 - Some basic familiarity with command line Linux, editing HTML files and using a text editor like nano.
