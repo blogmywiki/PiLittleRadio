@@ -117,6 +117,6 @@ Reload the configuration file with `sudo /etc/init.d/nginx reload`
 
 ### Add the web pages
 - to come
-
+ 
 ### Test
 - to come
