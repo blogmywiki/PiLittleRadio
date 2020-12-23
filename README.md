@@ -1,5 +1,5 @@
 # PiLittleRadio
-A Raspberry Pi internet radio controlled from web page
+A Raspberry Pi internet radio controlled from a web page
 
 ## What it does
 Turn an old Raspberry Pi and some amplified speakers into an internet radio you can control from your phone, tablet, Kindle or and computer on your WiFi network. It uses a simple webserver on the Pi to dish up a web page you can use to change channel, adjust the volume and see some 'now playing' track info via Twitter.
@@ -8,6 +8,7 @@ Turn an old Raspberry Pi and some amplified speakers into an internet radio you 
 - Some kind of Raspberry Pi with an audio jack and an SD card
 - A way of connecting it to the internet, either ethernet or wifi
 - Amplified speakers or headphones
+- That's it. This is not an audiophile project, it does not use an external DAC. In my view the 3.5mm jack is good enough for a radio in the kitchen, garage or workshop.
 
 ## How to install it
 - Download a fresh copy of Raspberry Pi OS Lite, I used the current Buster image: https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit 
@@ -24,7 +25,24 @@ Turn an old Raspberry Pi and some amplified speakers into an internet radio you 
 - reboot Pi, sudo shutdown now
 - unplug, replug
 - Looked at your router admin page (e.g. BT Home Hub is http://192.168.1.254/) to see if it had successfully joined wifi, and get its IP address: soemthing like 192.168.1.199
-- Log in by SSH from Terminal on your laptop: ssh pi@192.168.1.199 in my case, enter password
-- Hooray! You're now logged in remotely!
+- Log in by SSH from Terminal on your laptop: `ssh pi@192.168.1.199` in my case, enter password
+- Hooray! You're now logged in to your Pi remotely!
 - Run `sudo apt-get update` on Pi
 - Install Music Player Client and Daemon. These will stream internet radio for you.	Use `sudo apt-get install mpd mpc`
+- Add a radio station:
+	`mpc add http://icecast.radiofrance.fr/fip-midfi.mp3`
+- Test with `mpc play 1` - it should plays FIP out of the headphone socket.
+- Add some more radio stations. My list looks like this:
+--	BBC Radio 2 `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p`
+--	BBC Radio 3 `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p`
+--	BBC Radio 4 FM `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p`
+--	BBC Radio 5Live `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio5live_mf_p`
+--	BBC 6music `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_6music_mf_p`
+--	BBC World Service News `http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-einws`
+--	RTÉ Radio 1 `mpc add http://icecast2.rte.ie/radio1`
+--	RTÉ 2xm `mpc add http://icecast2.rte.ie/2xm`
+-- Scala Radio `mpc add https://stream-mz.planetradio.co.uk/scalahigh.aac`
+-- BBC Radio 4 Extra `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4extra_mf_p`
+-- BBC 6music high quality `mpc add	http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_6music.m3u8`
+-- BBC Radio 3 high quality `mpc add	http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_three.m3u8`
+-- fip high quality `mpc add http://icecast.radiofrance.fr/fip-hifi.aac`
