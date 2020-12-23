@@ -45,7 +45,7 @@ Turn an old Raspberry Pi and some amplified speakers into an internet radio you 
 	- BBC Radio 4 FM `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p`
 	- BBC Radio 5Live `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio5live_mf_p`
 	- BBC 6music `mpc add http://bbcmedia.ic.llnwd.net/stream/bbcmedia_6music_mf_p`
-	- BBC World Service News `http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-einws`
+	- BBC World Service News stream `mpc add http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-einws`
 	- RTÉ Radio 1 `mpc add http://icecast2.rte.ie/radio1`
 	- RTÉ 2XM `mpc add http://icecast2.rte.ie/2xm`
 	- Scala Radio `mpc add https://stream-mz.planetradio.co.uk/scalahigh.aac`
@@ -53,7 +53,8 @@ Turn an old Raspberry Pi and some amplified speakers into an internet radio you 
 	- BBC 6music high quality `mpc add http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_6music.m3u8`
 	- BBC Radio 3 high quality `mpc add	http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_three.m3u8`
 	- fip high quality `mpc add http://icecast.radiofrance.fr/fip-hifi.aac`
-	
+- They will play by numbers in the order you add them, e.g. `mpc play 4` plays BBC Radio 4.
+
 ### Pump up the volume
 - Edit the mpd.conf file on the Pi to enable volume changes to work with `sudo nano /etc/mpd.conf` 
 The audio_output section should end up looking like this:
@@ -62,7 +63,7 @@ The audio_output section should end up looking like this:
         name            "My ALSA Device"
         mixer_type      "software"   
 }`
-- My audio jack audio was too quiet, so I fixed this using `alsamixer`. Press F6, select the headphones and turn the volume up. I went up to about 80%. Press ESC to escape.
+- My audio jack audio was too quiet, so I fixed this using `alsamixer`. Press F6, select the headphones and turn the volume up. I went up to about 80%. Press ESC to escape. Test it out by playing some radio `mpc play 1` then try `mpc volume +10` or `mpc volume -10` to increase and decrease the volume.
 
 ### Install a webserver
 - to come
