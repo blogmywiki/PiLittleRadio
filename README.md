@@ -6,7 +6,7 @@ Turn an old Raspberry Pi and some amplified speakers into an internet radio you 
 
 ## What you'll need
 - Some kind of Raspberry Pi with an audio jack and an SD card - I think anything except a PiZero should work
-- A way of connecting it to the internet, either ethernet or wifi
+- A way of connecting it to the internet, either ethernet or wifi -  you may need to add a USB WiFi dongle for older Pis if Ethernet is not an option
 - Amplified speakers or headphones
 - Some basic familiarity with command line Linux, editing HTML files and using a text editor like nano.
 - That's it. This is not an audiophile project, it does not use an external DAC. In my view the 3.5mm jack is good enough for a radio in the kitchen, garage or workshop.
