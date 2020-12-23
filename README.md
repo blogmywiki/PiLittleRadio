@@ -133,3 +133,4 @@ Save and refresh your web browser. You should see a page with the PHP version, l
 - Rename the index page so it doesn't conflict with our radio controller page: `sudo mv index.php phpinfo.php` 
 - Place the index.php and shutdown.php files from this project in your web server folder /var/www/html/ 
 - Refresh your web-browser and you should see a page like this:
+![Screenshot](screenshot.png)
