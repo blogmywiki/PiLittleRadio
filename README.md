@@ -9,6 +9,8 @@ Turn an old Raspberry Pi and some amplified speakers into an internet radio you 
 - A way of connecting it to the internet, either ethernet or wifi -  you may need to add a USB WiFi dongle for older Pis if Ethernet is not an option
 - Amplified speakers or headphones
 - Some basic familiarity with command line Linux, editing HTML files and using a text editor like nano.
+- An HDMI monitor and USB keyboard for initial set up
+- A laptop with a terminal program is convenient but not essential to set it up remotely - you could do all the setup on the Pi itself. I describe using a laptop below but everything I do over SSH you can also do locally of course.
 - That's it. This is not an audiophile project, it does not use an external DAC. In my view the 3.5mm jack is good enough for a radio in the kitchen, garage or workshop.
 
 ## How to install it
@@ -27,7 +29,7 @@ Turn an old Raspberry Pi and some amplified speakers into an internet radio you 
 -- Change hostname: I used 'PiLittleRadio' to make it easier to find on your local network
 - reboot Pi, sudo shutdown now
 - unplug, replug
-- Looked at your router admin page (e.g. BT Home Hub is http://192.168.1.254/) to see if it had successfully joined wifi, and get its IP address: soemthing like 192.168.1.199
+- Either use the HDMI monitor or `ifconfig` or look at your router admin page (e.g. BT Home Hub is http://192.168.1.254/) to see if it has successfully joined wifi, and get its IP address: this will be something like 192.168.1.199
 - Log in by SSH from Terminal on your laptop: `ssh pi@192.168.1.199` in my case, enter password
 - Hooray! You're now logged in to your Pi remotely!
 
@@ -73,10 +75,10 @@ audio_output {
 
 ### Install a webserver
 - How do you install a webserver? You just install a webserver.
-- Ok, there's a bit more to it. But really, not much more. There's a good guide to installing nginx, a lightweight webserver, here: https://www.raspberrypi.org/documentation/remote-access/web-server/nginx.md 
+- Ok, there's a bit more to it. But not much more. There's a good guide to installing nginx, a lightweight webserver, here: https://www.raspberrypi.org/documentation/remote-access/web-server/nginx.md 
 - In short, you need to type `sudo apt update` then install it with `sudo apt install nginx`
 - Start the server with `sudo /etc/init.d/nginx start`
-- On your laptop browse to http://192.168.1.199 (replace that number with your Pi's IP address) and you should see the ‘welcome to nginx’ message served.
+- On your laptop, browse to http://192.168.1.199 (replace that number with your Pi's IP address, or the name you gave the hostname, e.g. http://pilittleradio) and you should see the ‘welcome to nginx’ message served.
 - The default web page is in /var/www/html on your Pi, and that's where we need to copy the index.php and shutdown.php files that form part of this project.
 
 ### Enable PHP
@@ -134,7 +136,7 @@ Save and refresh your web browser. You should see a page with the PHP version, l
 - Place the index.php and shutdown.php files from this project in your web server folder /var/www/html/ 
 - If you've added a different set of radio stations, you'll need to edit the index.php file so the buttons have the right station names and plays the right station numbers. For example:
 ```
-="?station=4" class="stationlinks">BBC&nbsp;R4</a> 
+<a href="?station=4" class="stationlinks">BBC&nbsp;R4</a> 
 ```
 has a button label of BBC R4 (the &nbsp; is a non-breaking space that ensures the button stays on one line), and it plays the 4th station added to MPC.
 - I've added Twitter feeds of 'now playing' info for fip, BBC Radio 2, Radio 3, and 6Music. 
