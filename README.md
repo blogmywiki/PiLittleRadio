@@ -5,7 +5,7 @@ A Raspberry Pi internet radio controlled from a web page
 Turn an old Raspberry Pi and some amplified speakers into an internet radio you can control from your phone, tablet, Kindle or and computer on your WiFi network. It uses a simple webserver on the Pi to dish up a web page you can use to change channel, adjust the volume and see some 'now playing' track info via Twitter. The web page is designed to look good on a small iPhone but you could tweak it to look better on your device.
 
 ## What you'll need
-- Some kind of Raspberry Pi with an audio jack and an SD card - I think anything except a PiZero should work
+- Some kind of Raspberry Pi with an audio jack and an SD card - I used a Raspberry Pi 3 Model B Rev 1.2 bu I think anything except a PiZero should work
 - A way of connecting it to the internet, either ethernet or wifi -  you may need to add a USB WiFi dongle for older Pis if Ethernet is not an option
 - Amplified speakers or headphones
 - Some basic familiarity with command line Linux, editing HTML files and using a text editor like nano.
@@ -160,6 +160,7 @@ www-data ALL=NOPASSWD: /sbin/shutdown
 
 Press ctrl+x to save and exit.
 
+When you click on 'shutdown' you'll be asked if you're sure and have the option to say no and go back to the radio control page. If you say yes you'll see a 'bad gateway' error in the browser, this is normal. Wait a bit before unplugging your Pi. Shutting down this way, rather than just pulling the power out, protects your SD card from getting corrupted. Probably.
 
 ### Background
 
@@ -168,8 +169,10 @@ I originally made this project in Cornwall in 2014: http://www.suppertime.co.uk/
 That version used a horrible kludge to get BBC Radio tracklistings via last.fm, but I think that doesn't work any more so I've stripped all that code (but not the CSS) out. It may be possible to do something clever with sydicated fip music info as per http://www.suppertime.co.uk/blogmywiki/2018/04/fip-now-plays/
 
 ### To do
+- add delay on shutdown to avoid bad gateway error
 - volume slider
 - play local audio MP3 files 
 - display station list on the fly and manage from web page
 - make buttons stay lit when station selected
 - add Bluetooth speaker option?
+- make HTML and CSS responsive and just better all round really - it was all hacked together on holiday 6 years ago
