@@ -142,6 +142,25 @@ has a button label of BBC R4 (the &nbsp; is a non-breaking space that ensures th
 
 ![Screenshot](screenshot.png)
 
+### Shutdown
+
+You'll find that the shutdown option doesn't work unless you give the webserver's user permission to shut the system down. The nginx webserver runs as a user called www-data, so you need to use the `visudo` command like this:
+
+`sudo visudo`
+
+Add these lines to the bottom of the page:
+
+```
+pi ALL=(ALL) NOPASSWD: ALL
+www-data ALL=/sbin/reboot
+www-data ALL=NOPASSWD: /sbin/reboot
+www-data ALL=/sbin/shutdown
+www-data ALL=NOPASSWD: /sbin/shutdown
+```
+
+Press ctrl+x to save and exit.
+
+
 ### Background
 
 I originally made this project in Cornwall in 2014: http://www.suppertime.co.uk/blogmywiki/2014/10/raspberry-pi-internet-radio-with-web-interface/
