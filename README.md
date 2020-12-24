@@ -16,7 +16,7 @@ Turn an old Raspberry Pi and some amplified speakers into an internet radio you 
 ### Bake a fresh Pi
 - Download a fresh copy of Raspberry Pi OS Lite, I used the current Buster image: https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit 
 - Flash it to the SD card - I used the 16GB microSD card that was in my old Pi using RaspberryPi imager app (Mac) but you could use a much smaller card.
-- Plugged the Pi into a TV or monitor via HDMI socket, ethernet internet and a USB keyboard
+- Plug the Pi into a TV or monitor via HDMI socket, add ethernet internet from your broadband router and a USB keyboard
 - Wait for it to expand filesystem and run apt upgrade 
 - log in as pi / raspberry
 - configure a few things with sudo raspi-config:
